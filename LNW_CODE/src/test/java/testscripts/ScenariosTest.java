@@ -13,7 +13,7 @@ public class ScenariosTest extends BaseClass {
 
     private WebDriver driver;
 
-    @Test
+    @Test(priority = 2,invocationTimeOut = 200)
     public void addMonitorToCartAndVerifySubTotal() {
 
         HomePage homePage = new HomePage(driver);
@@ -33,7 +33,7 @@ public class ScenariosTest extends BaseClass {
         Assert.assertEquals(productPrice, cartSubTotal, "Product price and cart sub total do not match");
     }
 
-    @Test
+    @Test(priority = 1,successPercentage = 100)
     public void addLaptopToCartAndVerifySubTotal() {
 
         HomePage homePage = new HomePage(driver);
@@ -53,7 +53,7 @@ public class ScenariosTest extends BaseClass {
         Assert.assertEquals(productPrice, cartSubTotal, "Product price and cart sub total do not match");
     }
 
-    @Test
+    @Test(priority = 0 )
     public void addTwoItemsToCartAndVerifySubTotal() {
 
         HomePage homePage = new HomePage(driver);
