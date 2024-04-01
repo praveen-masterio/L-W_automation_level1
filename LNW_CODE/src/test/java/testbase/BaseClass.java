@@ -29,7 +29,7 @@ properties = ResourceBundle.getBundle("config");
 
 if (properties.getString("browser1").equalsIgnoreCase("chrome")) {
 
-System.setProperty("webdriver.chrome.driver","./driver/chromedriver.exe");
+System.setProperty("webdriver.chrome.driver",properties.getString("chromeDriverPath"));
 driver = new ChromeDriver();
 } else if (properties.getString("browser2").equalsIgnoreCase("edge")) {
 System.setProperty("webdriver.edge.driver", properties.getString("edgeDriverPath"));

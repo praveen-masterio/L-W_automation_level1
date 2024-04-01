@@ -7,34 +7,39 @@ import org.openqa.selenium.support.PageFactory;
 
 public class HomePage {
 
-    private WebDriver driver;
+	public WebDriver driver;
 
-    @FindBy(id = "twotabsearchtextbox")
-    private WebElement searchBox;
+	public HomePage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
 
-    @FindBy(id = "nav-search-submit-button")
-    private WebElement searchButton;
+	@FindBy(id = "twotabsearchtextbox")
+	private WebElement searchBox;
 
-    @FindBy(xpath = "//span[@class='a-size-medium a-color-base a-text-normal']")
-    private WebElement productName;
+	@FindBy(id = "nav-search-submit-button")
+	private WebElement searchButton;
 
-    public HomePage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
-    }
+	@FindBy(xpath = "//span[@class='a-size-medium a-color-base a-text-normal']")
+	private WebElement productName;
 
-    public void navigateToHomePage() {
-        driver.get("https://www.amazon.com");
-    }
+	public void navigateToHomePage() {
+		driver.get("https://www.amazon.in/");
+	}
 
-    public void searchForProduct(String product) {
-        searchBox.sendKeys(product);
-        searchButton.click();
-    }
+	public void searchForProduct(String product) {
+		searchBox.sendKeys(product);
+		searchButton.click();
+	}
 
-    public ProductPage clickOnFirstProductResult() {
-        productName.click();
-        return new ProductPage(driver);
-    }
+	public ProductPage clickOnFirstProductResult() {
+		productName.click();
+		return new ProductPage(driver);
+	}
+
+	public ProductPage clickOnSecondProductResult() {
+		productName.click();
+		return new ProductPage(driver);
+	}
 
 }
